@@ -4,13 +4,15 @@ from fileinput import filename
 import pandas as pd
 from flask import *
 import os
+
 from werkzeug.utils import secure_filename
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 from flask import Flask
 import numpy as np
 import matplotlib.pyplot as plt
-
+import matplotlib
+matplotlib.use('Agg')
 
 
 UPLOAD_FOLDER = os.path.join('staticFiles', 'uploads')
@@ -65,6 +67,7 @@ def plot():
     plt.title('Plot Title')
     plt.savefig('static/plot.png')
     return render_template('plot.html', plot='./static/plot.png')
+
 
 
 
