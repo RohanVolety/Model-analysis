@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./main.css">
+  <head>
     <title>Uploading & Reading CSV file</title>
-</head>
-
-<body>
+  </head>
+  <body
+    style="
+      background-color: #f1f5f8;
+      display: flex;
+      flex-direction: column;   
+      justify-content: center;
+      align-items: center;
+    "
+  >
     <form method="POST" enctype="multipart/form-data" action="/">
-        <input type="file" name="file" accept=".csv">
-        <input type="submit" value="Upload">
+      <input type="file" name="file" accept=".csv" />
+      <input
+        type="submit"
+        value="Upload"
+        style="
+          background-color: green;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          border-radius: 5px;
+          border: none;
+          cursor: pointer;
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+          transition: all 0.2s ease-in-out;
+          margin-top: 20px;
+        "
+      />
     </form>
-    <p style="color:blue;">Choose csv file to upload</p>
-    <div style="">
-        <form action="/show_data" target="_blank">
-            <input type="submit" value="Show CSV" style="
-            background-color: #FF0000;
+    <div
+      style="
+        background-color: #f1f5f8;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <p>Choose csv file to upload</p>
+      <form action="/show_data" target="_blank">
+        <input
+          type="submit"
+          value="Show CSV"
+          style="
+            background-color: #ee5253;
             color: white;
             padding: 10px 20px;
             text-align: center;
@@ -28,27 +59,11 @@
             border-radius: 5px;
             border: none;
             cursor: pointer;
-            box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             transition: all 0.2s ease-in-out;
-          " />
-        </form>
-        <form action="//print-plot" target="_blank">
-            <input type="submit" value="Show Graph" style="
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            transition: all 0.2s ease-in-out;
-          " />
-        </form>
+          "
+        />
+      </form>
     </div>
-</body>
-
+  </body>
 </html>
