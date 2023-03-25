@@ -96,14 +96,26 @@
   </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script>
   const downloadBtn = document.getElementById('download-btn');
   const textarea = document.getElementById('textarea');
 
   downloadBtn.addEventListener('click', () => {
-    const doc = new jsPDF();
-    doc.text(textarea.value, 10, 10);
-    doc.save('model.pdf');
+    // fetch('https://picsum.photos/200/300')
+    fetch('http://127.0.0.1:5000/static/plot.png')
+      .then(response => response.blob())
+      .then(imageBlob => {
+        const reader = new FileReader();
+        reader.readAsDataURL(imageBlob);
+        reader.onloadend = () => {
+          const imageBase64 = reader.result;
+          const doc = new jsPDF();
+          doc.addImage(imageBase64, 'JPEG', 10, 10, 50, 50);
+          doc.text(textarea.value, 10, 10);
+          doc.save('model.pdf');
+        };
+      });
   });
 </script>
 
